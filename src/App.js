@@ -1,13 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import Home from "./components/Home/Home";
 import Layout from "./components/layout/Layout";
+import Login from "./components/Login/Login";
 
 function App() {
-  return (
+    const [account, setLogin] = useState(false);
+
+    return (
       <React.StrictMode>
           <div className="App">
               <Layout>
-                  <Home/>
+                  {
+                      !account &&
+                      <Login setLogin={setLogin}/>
+                  }
+                  {
+                      account &&
+                      <Home account={account}/>
+                  }
               </Layout>
           </div>
       </React.StrictMode>
