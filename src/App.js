@@ -4,7 +4,7 @@ import Layout from "./components/layout/Layout";
 import Login from "./components/Login/Login";
 
 function App() {
-    const [account, setLogin] = useState(false);
+    const [account, setLogin] = useState('');
 
     return (
       <React.StrictMode>
@@ -16,7 +16,7 @@ function App() {
                   }
                   {
                       account &&
-                      <Home account={account}/>
+                      <Home account={account} setLogin={setLogin}/>
                   }
               </Layout>
           </div>

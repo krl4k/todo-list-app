@@ -39,7 +39,7 @@ class Login extends React.Component {
         return (
             <div className='h-full text-white w-4/5 mx-auto text-center'>
                 <h1 className={'text-2xl font-bold  mb-4'}>Choose the account</h1>
-                {this.state.accounts.map(acc =>
+                {this.state.accounts.length > 0 && this.state.accounts.map(acc =>
                     <span key={acc}>
                         <Account account={acc} setLogin={this.props.setLogin}/>
                     </span>

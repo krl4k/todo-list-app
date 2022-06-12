@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import TodoItem from "./Item/TodoItem";
 import CreateTodoField from "./Item/CreateTodoField";
+import {BiLogOut} from "react-icons/bi";
 
 const data = []
 
 
-const Home = ({account}) => {
+const Home = ({account, setLogin}) => {
 
     const [todos, setTodos] = useState(data);
 
@@ -22,7 +23,10 @@ const Home = ({account}) => {
     return (
         <div className='h-full text-white w-4/5 mx-auto'>
             <h1 className='text-2xl font-bold text-center mb-4'>Todo list</h1>
-            <h2 className='text-2xl font-bold text-center mb-4'>Account: {account}</h2>
+            <span className={'flex item-center justify-between mb-4  p-5 w-full'}>
+                <h2 className='text-2xl font-bold text-center mb-4'>Account: {account}</h2>
+                <BiLogOut size={24} className='text-2xl font-bold text-center mb-4 hover:accent-red-600' onClick={() => setLogin('')}>Log out</BiLogOut>
+            </span>
                 {todos.map((todo) => (
                     <span key={todo.id} className={'item-center'}>
                         <TodoItem key={todo.id} todo={todo} changeTodo={changeTodo} removeTodo={removeTodo}/>
